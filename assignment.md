@@ -22,7 +22,7 @@ We want to write a class that creates polynomial objects. We'll write methods to
  * Return a string representation of polynomials, suitable for display with LaTeX,
  * Take the derivative or integral of a polynomial.
 
-Your class will need to store the coefficients. Talk with your partner about what sort of object you'll use to do this, and make sure you both understand the objects you'll be creating. 
+Your class will need to store the coefficients. Talk with your partner about what sort of object you'll use to do this, and make sure you both understand the objects you'll be creating.
 
 ## Part 1: Starting your class
 
@@ -53,4 +53,3 @@ Write a polynomial multiplcation called `__mul__` which takes in two polynomials
 ## Part 7: Do calculus
 
 Add `differentiate` and `integrate` methods that return the derivative and integral of a polynomial.  Check out the [polynomial_calculus_helper.md](polynomial_calculus_helper.md) in this repository for an introduction/review and for some algorithmic hints on how to accomplish it.
-

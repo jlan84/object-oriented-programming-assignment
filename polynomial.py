@@ -1,7 +1,7 @@
 import numpy as np
 import math
 
-class poly(object):
+class Poly(object):
     def __init__(self, deg_lst):
         self.power_list = []
         self.deg_lst = deg_lst
@@ -9,16 +9,16 @@ class poly(object):
             self.power_list.append(i)
     
     def eval_poly(self, x):
-        sum = 0
+        sum_ = 0
         for i in range(len(self.deg_lst)):
-            sum += self.deg_lst[i]*x**self.power_list[i]
-        return sum
+            sum_ += self.deg_lst[i]*x**self.power_list[i]
+        return sum_
 
     def __add__(self, other):
-        return [item1+item2 for (item1,item2) in zip(self.deg_lst, other.deg_lst)]
+        return Poly([item1+item2 for (item1,item2) in zip(self.deg_lst, other.deg_lst)])
 
     def __sub__(self, other):
-        return [item1-item2 for (item1,item2) in zip(self.deg_lst, other.deg_lst)]   
+        return Poly([item1-item2 for (item1,item2) in zip(self.deg_lst, other.deg_lst)])
 
     def __repr__(self):
         return f'Polynomial {self.deg_lst}'
@@ -33,6 +33,10 @@ class poly(object):
                 poly_string+= f'{self.deg_lst[i]}x^{self.power_list[i]}+'
         return poly_string
 
+    def __mul__(self,other):
+        self_arr1 = np.array(self.deg_lst)
+        other_arr1 = np.array(other.deg_lst)
+        return Poly(np.polymul(self_arr1,other_arr1))
 
     
 
@@ -40,14 +44,15 @@ class poly(object):
 
 
 if __name__ == '__main__':
-    deg_lst = [3,2,1]
-    p1 = poly(deg_lst)
-    print(p1)
-    print(poly(deg_lst))
-    deg_lst2 = [1,1,1]
-    p2 = poly(deg_lst2)
-    print(p1 + p2)
-    print(p1 - p2)
+    deg_lst = [1,2]
+    p1 = Poly(deg_lst)
+    # print(p1)
+    # print(Poly(deg_lst))
+    deg_lst2 = [1,2]
+    p2 = Poly(deg_lst2)
+    # print(p1 + p2)
+    # print(p1 - p2)
+    print(p1 * p2)
 
 
         
