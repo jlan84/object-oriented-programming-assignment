@@ -14,8 +14,11 @@ class poly(object):
             sum += self.deg_lst[i]*x**self.power_list[i]
         return sum
 
-    def two_polys(self, deg2_lst):
-        pass
+    def __add__(self, other):
+        return [item1+item2 for (item1,item2) in zip(self.deg_lst, other.deg_lst)]
+
+    def __sub__(self, other):
+        return [item1-item2 for (item1,item2) in zip(self.deg_lst, other.deg_lst)]   
 
     def __repr__(self):
         return f'Polynomial {self.deg_lst}'
@@ -31,17 +34,20 @@ class poly(object):
         return poly_string
 
 
-
+    
 
 
 
 
 if __name__ == '__main__':
     deg_lst = [3,2,1]
-    p1 = poly(deg_lst).eval_poly(2)
+    p1 = poly(deg_lst)
     print(p1)
     print(poly(deg_lst))
-
+    deg_lst2 = [1,1,1]
+    p2 = poly(deg_lst2)
+    print(p1 + p2)
+    print(p1 - p2)
 
 
         
