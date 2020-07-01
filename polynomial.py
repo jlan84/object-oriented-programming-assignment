@@ -47,6 +47,9 @@ class Poly(object):
         arr = np.array(rev_arr)
         return Poly(np.polyint(arr)[::-1])
 
+    def __eq__(self, other):
+        return self.deg_list == other.deg_list
+
     
 
 
@@ -61,7 +64,7 @@ if __name__ == '__main__':
     p2 = Poly(deg_lst2)
     # print(p1 + p2)
     # print(p1 - p2)
-    print(p1.integral())
+    print(p1*p2)
 
 
         
