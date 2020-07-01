@@ -38,13 +38,22 @@ class Poly(object):
         other_arr1 = np.array(other.deg_lst)
         return Poly(np.polymul(self_arr1,other_arr1))
 
+    def derivative(self):
+        arr = np.array(self.deg_lst)
+        return Poly(np.polyder(arr))
+
+    def integral(self):
+        rev_arr = self.deg_lst
+        arr = np.array(rev_arr)
+        return Poly(np.polyint(arr)[::-1])
+
     
 
 
 
 
 if __name__ == '__main__':
-    deg_lst = [1,2]
+    deg_lst = [1,2,3]
     p1 = Poly(deg_lst)
     # print(p1)
     # print(Poly(deg_lst))
@@ -52,7 +61,7 @@ if __name__ == '__main__':
     p2 = Poly(deg_lst2)
     # print(p1 + p2)
     # print(p1 - p2)
-    print(p1 * p2)
+    print(p1.integral())
 
 
         
