@@ -50,6 +50,12 @@ class Poly(object):
     def __eq__(self, other):
         return self.deg_list == other.deg_list
 
+    def __neg__(self):
+        result = []
+        for coef in self.deg_lst:
+            result.append(-coef)
+        return Poly(result)
+
     
 
 
