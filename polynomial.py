@@ -33,8 +33,7 @@ class poly(object):
                 poly_string+= f'{self.deg_lst[i]}x^{self.power_list[i]}+'
         return poly_string
 
-
-    
+   
 
 
 
@@ -48,7 +47,7 @@ if __name__ == '__main__':
     p2 = poly(deg_lst2)
     print(p1 + p2)
     print(p1 - p2)
-
+    print(np.dot(deg_lst,deg_lst2))
 
         
         
